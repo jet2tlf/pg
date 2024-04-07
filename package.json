@@ -1,0 +1,22 @@
+{
+  "name": "pg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "esbuild --watch --bundle --platform=node --target=node16.9.1 src/index.ts --outfile=dist/build.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.29",
+    "@types/pg": "^8.11.2",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@citizenfx/server": "^2.0.7654-1",
+    "perf_hooks": "^0.0.1",
+    "pg": "^8.11.3"
+  }
+}

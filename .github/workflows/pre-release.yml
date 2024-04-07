@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: yarn install
+        
+      
+      - name: Build Project
+        run: yarn build
+
+      - name: Bundle files
+        run: |
+          sudo apt install zip
+          mkdir -p ./temp/pg
+          cp ./{LICENSE,README.md,fxmanifest.lua} ./temp/pg
+          cp -r ./dist ./temp/pg
+          cd ./temp && zip -r ../pg.zip ./pg
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pg
+          path: pg.zip
