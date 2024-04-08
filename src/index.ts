@@ -1,4 +1,4 @@
-import { createConnection, pgClient } from "./database";
+import { createConnection } from "./database";
 import { query } from "./method/query";
 
 export const credentials = GetConvar("postgreCredentials", "null");
