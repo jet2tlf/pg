@@ -17,5 +17,5 @@ start pg
 Query
 
 ```lua
-local result = exports["pg"]:query("SELECT * FROM teste WHERE id = @id", { id = '1' });
+local result = exports["pg"]:query("SELECT * FROM cars WHERE manufacturer = $1 AND horsepower > $2", { 'volkswagen', 200 });
 ```
